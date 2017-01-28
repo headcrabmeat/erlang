@@ -31,3 +31,17 @@ default['erlang']['esl']['lsb_codename'] = node['lsb'] ? node['lsb']['codename']
 
 default['erlang']['package']['version'] = nil
 default['erlang']['package']['install_epel_repository'] = true
+
+case node['platform_family']
+when 'windows'
+  if node['kernel']['machine'] == 'x86_64'
+    default['erlang']['architecture'] = '64'
+    default['erlang']['checksum'] = nil
+  else
+    default['erlang']['architecture'] = '32'
+    default['erlang']['checksum'] = nil
+  end
+  default['erlang']['install_dir'] = "C:\\erlang_#{node['erlang']['version']}"
+  default['erlang']['url'] = "http://erlang.org/download/otp_win#{node['erlang']['architecture']}_#{node['erlang']['version']}.exe"
+  default['erlang']['display_name'] = "Erlang version #{node['erlang']['version']}"
+end

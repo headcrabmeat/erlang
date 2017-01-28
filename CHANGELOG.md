@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the erlang cookbook.
 
+## 5.2.0 (TBD)
+- Add support of windows platform
+
 ## 5.1.0 (2017-04-04)
 
 - Add of a new attribute toggling EPEL repo installation.

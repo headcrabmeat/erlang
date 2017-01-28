@@ -22,6 +22,9 @@
 #
 
 case node['platform_family']
+when 'windows'
+  include_recipe 'erlang::windows'
+
 when 'debian'
   if node['platform_version'].to_i < 16.04
     erlpkg = node['erlang']['gui_tools'] ? 'erlang-x11' : 'erlang-nox'
